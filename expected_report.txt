@@ -1,0 +1,31 @@
+=== Statistics report: daily_deposits_kes ===
+Rows read         : <n>
+Valid values      : <n>
+Rejected values   : <n>
+  row <n>: '<raw value>' (<reason>)
+  ...
+
+                    all data      outliers removed
+count               <n>           <n>
+mean                <x>           <x>
+median              <x>           <x>
+mode                <x or 'none'> <x or 'none'>
+variance (sample)   <x>           <x>
+std dev (sample)    <x>           <x>
+min / max           <x> / <x>     <x> / <x>
+Q1 / Q3             <x> / <x>     <x> / <x>
+IQR                 <x>           <x>
+
+Outlier fences      : lower <x>, upper <x>
+Outliers            : <value> (<date>, <agent_id>), ...
+
+=== NumPy verification ===
+mean      <MATCH | MISMATCH>
+median    <MATCH | MISMATCH>
+variance  <MATCH | MISMATCH>  (ddof=<0|1>)
+std dev   <MATCH | MISMATCH>
+Q1 / Q3   <MATCH | MISMATCH>  (method=<name>)
+
+=== Unit tests ===
+Ran <n> tests in <s>s
+OK

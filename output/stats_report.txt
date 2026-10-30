@@ -1,0 +1,46 @@
+=== Statistics report: daily_deposits_kes ===
+Rows read         : 40
+Valid values      : 35
+Rejected values   : 5
+  row 7: '' (missing value)
+  row 10: '-' (not a valid number)
+  row 14: 'n/a' (not a valid number)
+  row 25: '12,40O' (not a valid number)
+  row 29: '' (missing value)
+
+                           all data    outliers removed
+count                            35                  31
+mean                       22400.00            18349.65
+median                     18805.47            18506.72
+mode                           none                none
+variance (sample)      328019873.36         10116378.52
+std dev (sample)           18111.32             3180.63
+min / max           1200.00 / 96500.00  12772.70 / 26725.69
+Q1 / Q3             15998.40 / 20977.21  15998.40 / 20730.60
+IQR                         4978.81             4732.20
+
+Outlier fences      : lower 8530.19, upper 28445.41
+Outliers            : 96500.00 (2026-09-20, AG-104), 1200.00 (2026-10-02, AG-104), 88400.00 (2026-10-06, AG-104), 29060.99 (2026-10-07, AG-101)
+
+=== NumPy verification ===
+variance/std dev use ddof=1; quartiles use linear interpolation (NumPy method='linear').
+mean       MATCH
+median     MATCH
+variance   MATCH
+std dev    MATCH
+mode       MATCH
+Q1         MATCH
+Q2         MATCH
+Q3         MATCH
+IQR        MATCH
+
+Risk team notes:
+- The unusually high deposits may reflect legitimate large transactions, fraud, or a recording error; confirm them against transaction records.
+- The unusually low deposit may indicate a float shortage, a genuinely quiet day, or an input problem, so compare it with the agent's activity.
+- IQR flags are investigation prompts rather than proof of misconduct, and daily totals alone cannot identify the cause.
+
+=== Unit tests ===
+----------------------------------------------------------------------
+Ran 14 tests in 0.498s
+
+OK
